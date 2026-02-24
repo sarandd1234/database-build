@@ -2,8 +2,6 @@
    DATABASE BUILD SCRIPT – COURSE REGISTRATION SYSTEM
    ===================================================== */
 
-
-/* ================= NEW USER - ADD THIS CODE FIRST - SARAN ================= */
 CREATE DATABASE IF NOT EXISTS course_registration_db;
 USE course_registration_db
    
