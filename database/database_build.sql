@@ -3,10 +3,11 @@
    ===================================================== */
 
 
-/* ================= SCHEMA DEFINITION - SARAN ================= */
+/* ================= NEW USER - ADD THIS CODE FIRST - SARAN ================= */
 CREATE DATABASE IF NOT EXISTS course_registration_db;
 USE course_registration_db
-
+   
+/* ================= SCHEMA DEFINITION - SARAN ================= */
 CREATE TABLE Department (
     DepartmentID INT PRIMARY KEY AUTO_INCREMENT,
     DepartmentName VARCHAR(100) NOT NULL
