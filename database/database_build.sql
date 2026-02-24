@@ -3,7 +3,7 @@
    ===================================================== */
 
 CREATE DATABASE IF NOT EXISTS course_registration_db;
-USE course_registration_db
+USE course_registration_db;
    
 /* ================= SCHEMA DEFINITION - SARAN ================= */
 CREATE TABLE Department (
