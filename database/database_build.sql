@@ -4,6 +4,10 @@
 
 
 /* ================= SCHEMA DEFINITION - SARAN ================= */
+CREATE DATABASE IF NOT EXISTS course_registration_db;
+
+USE course_registration_db;
+
 CREATE TABLE Department (
     DepartmentID INT PRIMARY KEY AUTO_INCREMENT,
     DepartmentName VARCHAR(100) NOT NULL
