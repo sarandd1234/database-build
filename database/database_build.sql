@@ -147,4 +147,28 @@ VALUES
 
 /* ================= VALIDATION QUERIES -JEREMY ================= */
 
--- QA queries go below, make sure to delete this line before commiting
+-- List all students registered for a specific course session (SessionID = 1)
+SELECT s.StudentID, s.FirstName, s.LastName
+FROM Student s
+JOIN Enrollment e ON s.StudentID = e.StudentID
+WHERE e.SessionID = 1;
+
+-- Find all instructors teaching in the Information Systems department
+SELECT i.FirstName, i.LastName
+FROM Instructor i
+JOIN Department d ON i.DepartmentID = d.DepartmentID
+WHERE d.DepartmentName = 'Information Systems';
+
+-- Retrieve the number of available slots in a specific session (SessionID = 1)
+SELECT (s.MaxCapacity - COUNT(e.StudentID)) AS AvailableSlots
+FROM Session s
+LEFT JOIN Enrollment e ON s.SessionID = e.SessionID
+WHERE s.SessionID = 1
+GROUP BY s.SessionID, s.MaxCapacity;
+
+-- Identify students registered for more than one session
+SELECT s.StudentID, s.FirstName, s.LastName, COUNT(e.SessionID) AS NumberOfSessions
+FROM Student s
+JOIN Enrollment e ON s.StudentID = e.StudentID
+GROUP BY s.StudentID, s.FirstName, s.LastName
+HAVING COUNT(e.SessionID) > 1;
