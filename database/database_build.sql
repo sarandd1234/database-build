@@ -59,9 +59,91 @@ CREATE TABLE Enrollment (
 
 /* ================= TEST DATA - TIFFANY ================= */
 
--- INSERT INTO statements go below, make sure to delete this line before commiting
+/* -------------------------
+   DEPARTMENT
+   ------------------------- */
+INSERT INTO Department (DepartmentName)
+VALUES
+('Information Systems'),
+('Marketing');
 
 
+/* -------------------------
+   COURSE
+   ------------------------- */
+INSERT INTO Course (CourseNum, CreditHours, DepartmentID)
+VALUES
+('INFO 465', 3, 1),
+('INFO 360', 3, 1),
+('INFO 361', 3, 1),
+('MKTG 302', 3, 2),
+('MKTG 410', 3, 2);
+
+
+/* -------------------------
+   INSTRUCTOR
+   ------------------------- */
+INSERT INTO Instructor (FirstName, LastName, DepartmentID)
+VALUES
+('Daniel', 'Kim', 1),
+('Lisa', 'Lopez', 1),
+('Sarah', 'Lee', 1),
+('Michael', 'Brown', 2),
+('Emily', 'Davis', 2);
+
+
+/* -------------------------
+   SESSION
+   ------------------------- */
+INSERT INTO Session (CourseID, InstructorID, Modality, MaxCapacity, Term)
+VALUES
+(1, 1, 'In-Person', 30, 'Fall 2026'),
+(2, 2, 'Online', 40, 'Fall 2026'),
+(3, 3, 'Hybrid', 25, 'Fall 2026'),
+(4, 4, 'In-Person', 35, 'Fall 2026'),
+(5, 5, 'Online', 50, 'Fall 2026');
+
+
+/* -------------------------
+   STUDENT
+   ------------------------- */
+INSERT INTO Student
+(FirstName, LastName, DateOfBirth, CurrentYear, Program, StudentNum, Email)
+VALUES
+('Tiffany','Nguyen','2003-04-12',3,'Information Systems','S1001','tnguyen@vcu.edu'),
+('Alex','Johnson','2002-07-21',4,'Information Systems','S1002','ajohnson@vcu.edu'),
+('Maria','Garcia','2004-01-10',2,'Marketing','S1003','mgarcia@vcu.edu'),
+('James','Wilson','2003-03-18',3,'Marketing','S1004','jwilson@vcu.edu'),
+('Sophia','Lee','2004-09-02',2,'Information Systems','S1005','slee@vcu.edu'),
+('David','Chen','2003-12-11',3,'Information Systems','S1006','dchen@vcu.edu'),
+('Olivia','Martinez','2002-05-05',4,'Marketing','S1007','omartinez@vcu.edu'),
+('Ethan','Clark','2003-08-14',3,'Information Systems','S1008','eclark@vcu.edu'),
+('Ava','Hall','2004-02-20',2,'Marketing','S1009','ahall@vcu.edu'),
+('Noah','Young','2003-06-30',3,'Information Systems','S1010','nyoung@vcu.edu');
+
+
+/* -------------------------
+   ENROLLMENT 
+   ------------------------- */
+
+INSERT INTO Enrollment (StudentID, SessionID)
+VALUES
+-- Student 1 enrolled in TWO sessions
+(1,1),
+(1,2),
+
+-- Five students enrolled in one session
+(2,1),
+(3,1),
+(4,1),
+(5,1),
+(6,1),
+
+-- Remaining students enrolled in one session
+(7,2),
+(8,3),
+(9,4),
+(10,5);
 
 /* ================= VALIDATION QUERIES -JEREMY ================= */
 
